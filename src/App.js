@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
 import './App.css';
+import {Row, Col} from 'react-bootstrap';
 
 import TaskList from './TaskList';
 import Date from './Date';
@@ -13,11 +13,11 @@ class App extends Component {
     super();
     this.state = {
         tasks: [
-            { 'id': '1', 'time': '12', 'period': 'AM', 'activity_title': 'Finish Tutorial Series', 'activity_description': '#ReactForNewbies', 'complete': 'false'}, 
-            { 'id': '2', 'time': '9', 'period': 'AM', 'activity_title': 'Meeting with Team Leads', 'activity_description': 'New Project Kickoff', 'complete': 'false' }, 
-            { 'id': '3', 'time': '11', 'period': 'AM', 'activity_title': 'Call Mom', 'activity_description': 'Return her call before she kills me', 'complete': 'false' }, 
-            { 'id': '4', 'time': '3', 'period': 'PM', 'activity_title': 'Fix Wifey\'s website', 'activity_description': 'FB Ads Integration not working', 'complete': 'false' }, 
-            { 'id': '5', 'time': '6', 'period': 'PM', 'activity_title': 'Do DB Backups', 'activity_description': 'Related to upcoming server migration', 'complete': 'false' }
+            { 'id': '1', 'time': '12:30', 'period': 'AM', 'activity_title': 'Finish Tutorial Series', 'activity_description': '#ReactForNewbies', 'complete': 'false'}, 
+            { 'id': '2', 'time': '09:25', 'period': 'AM', 'activity_title': 'Meeting with Team Leads', 'activity_description': 'New Project Kickoff', 'complete': 'false' }, 
+            { 'id': '3', 'time': '11:45', 'period': 'AM', 'activity_title': 'Call Mom', 'activity_description': 'Return her call before she kills me', 'complete': 'false' }, 
+            { 'id': '4', 'time': '03:00', 'period': 'PM', 'activity_title': 'Fix Wifey\'s website', 'activity_description': 'FB Ads Integration not working', 'complete': 'false' }, 
+            { 'id': '5', 'time': '06:20', 'period': 'PM', 'activity_title': 'Do DB Backups', 'activity_description': 'Related to upcoming server migration', 'complete': 'false' }
         ],
         pageState: 'TaskList'
     }
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   addTask(title, description, time){
-    var task = {'time': time.format("h:MM"), 'period': time.format("A"), 'activity_title':title, 'activity_description':description};
+    var task = {'time': time.format("hh:MM"), 'period': time.format("A"), 'activity_title':title, 'activity_description':description};
     var tasks = this.state.tasks.concat(task);
     this.setState({tasks: tasks});
     this.togglePageState();
@@ -77,10 +77,17 @@ class App extends Component {
 
     return (
       <div style={{padding: '30px 30px'}}>
-        <Avatar/>
-        <Date />
-        <br />
-        {content}
+        <Row>
+            <Col xs={6}>
+                <Date />
+            </Col>
+            <Col xs={6}>
+                <Avatar />
+            </Col>
+        </Row>
+        <Row>
+            {content}
+        </Row>
       </div>
     );
   }

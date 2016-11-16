@@ -22,7 +22,7 @@ class Task extends Component {
         return (
             <div>
                 <Row style={fontStyle}>
-                    <Col xs={1}>
+                    <Col xs={2}>
                         <div>
                             <p style={{textAlign: 'center', fontWeight: 'bold', paddingTop: '10px'}}>{this.props.time}
                                 <br />
@@ -30,11 +30,11 @@ class Task extends Component {
                             </p>
                         </div>
                     </Col>
-                    <Col xs={10}>
+                    <Col xs={8}>
                         <h4 id="activity-title">{this.props.activity_title}</h4>
                         <p>{this.props.activity_description}</p>
                     </Col>
-                    <Col xs={1}>
+                    <Col xs={2}>
                         <Row style={{paddingTop: '10px'}}>
                             <Col xs={6}>
                                 <FontAwesome name='times' onClick={this.removeTask.bind(this)} style={{cursor: 'pointer'}}/>

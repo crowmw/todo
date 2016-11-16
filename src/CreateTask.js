@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Row, Col, ControlLabel} from 'react-bootstrap';
+import {Row, Col, ControlLabel} from 'react-bootstrap';
 import TimePicker from 'rc-time-picker';
 import Moment from 'moment';
 import FontAwesome from 'react-fontawesome';
@@ -47,26 +47,36 @@ class CreateTask extends Component {
         return (
             <div>
             <Row style={{paddingTop: '10px'}}>
+            <Col xs={1}></Col>
+            <Col xs={10}>
                 <ControlLabel>Tytuł</ControlLabel>
                 <input className="form-control" onChange={this.titleChange} />
+            </Col>
+            <Col xs={1}></Col>
             </Row>
             <Row style={{paddingTop: '10px'}}>
+            <Col xs={1}></Col>
+            <Col xs={10}>
                 <ControlLabel>Opis</ControlLabel>
                 <input className="form-control" onChange={this.descriptionChange}/>
+            </Col>
+            <Col xs={1}></Col>
             </Row>
             <Row style={{paddingTop: '10px'}}>
+            <Col xs={1}></Col>
+            <Col xs={10}>
                 <ControlLabel>Godzina</ControlLabel><br />
                 <TimePicker style={{width: '100%'}} showSecond={true} defaultValue={Moment()} onChange={this.timeChange.bind(this)} />
+            </Col>    
+            <Col xs={1}></Col>
             </Row>
             <Row style={{paddingTop: '10px'}}>
                 <Col xs={2}>
-                    <FontAwesome name="arrow-left" onClick={this.backToList} size="2x" className="super-crazy-colors" style={{float: 'right', paddingTop: '10px', color: '#275c8b', cursor: 'pointer'}}/>
+                    <FontAwesome name="arrow-left" onClick={this.backToList} size="2x" style={{float: 'right', paddingTop: '10px', color: '#275c8b', cursor: 'pointer'}}/>
                 </Col>
                 <Col xs={8}></Col>
                 <Col xs={2}>
-                    <Button bsStyle="primary" bsSize="large" onClick={this.createTask}>
-                        <FontAwesome name="plus" />
-                    </Button>
+                        <FontAwesome name="plus" onClick={this.createTask} size="2x" style={{float: 'right', paddingTop: '10px', color: '#275c8b', cursor: 'pointer'}}/>
                 </Col>
             </Row>
             </div>

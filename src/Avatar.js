@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
-import {Row, Col, Image} from 'react-bootstrap';
+import Gravatar from 'react-gravatar';
 
 class Avatar extends Component {
     render() {
         return (
-            <div>
-                <Row>
-                    <Col xs={9}></Col>
-                    <Col xs={3}>
-                        <Image src="https://dl.dropboxusercontent.com/u/26425880/crow.jpg" thumbnail circle />
-                    </Col>
-                </Row>
-            </div>
+                <Gravatar email="crow.mw@gmail.com" size={150} className="thumbnail img-responsive" style={{borderRadius: '50%', float:'right'}}/>
         );
     }
 }
