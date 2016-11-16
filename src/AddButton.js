@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 
 class AddButton extends Component {
     handleClick(){
-        this.props.onClick();
+        this.props.remove();
     }
 
     render() {

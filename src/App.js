@@ -45,8 +45,11 @@ class App extends Component {
     this.setState({tasks: tasks});
   }
 
-  removeTask(task){
-    
+  removeTask(id){
+      const remainder = this.state.tasks.filter((task) => {
+          if(task.id !== id) return task;
+      })
+      this.setState({tasks: remainder})
   }
 
   render() {
@@ -55,7 +58,7 @@ class App extends Component {
         <Avatar/>
         <Date />
         <br />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} removeTask={this.removeTask.bind(this)}/>
         <br />
         <AddButton onClick={this.addTask.bind(this)} />
       </div>

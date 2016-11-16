@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 import Task from './Task';
 
 class TaskList extends Component {
+    handleRemoveTask(){
+        this.props.removeTask.bind(this);
+    }
+
     render() {
         return (
             <div>
@@ -12,7 +16,9 @@ class TaskList extends Component {
                             time={task.time}
                             period={task.period}
                             activity_title={task.activity_title}
-                            activity_description={task.activity_description} />
+                            activity_description={task.activity_description} 
+                            removeTask={this.handleRemoveTask.bind(this)}
+                            />
                 })}
             </div>
         );
