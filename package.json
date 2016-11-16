@@ -9,6 +9,7 @@
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "moment": "^2.16.0",
+    "rc-time-picker": "^2.2.1",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",

@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 
 class AddButton extends Component {
     handleClick(){
-        this.props.remove();
+        this.props.onClick();
     }
 
     render() {
@@ -13,7 +13,7 @@ class AddButton extends Component {
                 <Row>
                     <Col xs={10}></Col>
                     <Col xs={2}>
-                        <Button bsStyle="danger" bsSize="large" onClick={this.handleClick.bind(this)}>
+                        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick.bind(this)}>
                             <FontAwesome name="plus"/>
                         </Button>
                     </Col>

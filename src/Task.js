@@ -3,11 +3,25 @@ import {Row, Col} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 class Task extends Component {
+    removeTask(e) {
+        e.preventDefault();
+        this.props.removeTask(this.props.id);
+    }
+
+    completeTask(e) {
+        e.preventDefault();
+        this.props.completeTask(this.props.id);
+    }
 
     render() {
+        var fontStyle = {color: 'black'}
+        if(this.props.complete === 'true')
+        {
+            fontStyle = {color: 'lightgray'}
+        }
         return (
             <div>
-                <Row>
+                <Row style={fontStyle}>
                     <Col xs={1}>
                         <div>
                             <p style={{textAlign: 'center', fontWeight: 'bold', paddingTop: '10px'}}>{this.props.time}
@@ -23,10 +37,10 @@ class Task extends Component {
                     <Col xs={1}>
                         <Row style={{paddingTop: '10px'}}>
                             <Col xs={6}>
-                                <FontAwesome name='times' onClick={this.props.remove.bind(this)}/>
+                                <FontAwesome name='times' onClick={this.removeTask.bind(this)} style={{cursor: 'pointer'}}/>
                             </Col>
                             <Col xs={6}>
-                                <FontAwesome name='check' />
+                                <FontAwesome name='check' onClick={this.completeTask.bind(this)} style={{cursor: 'pointer'}}/>
                             </Col>
                         </Row>
                     </Col>
